@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f1f1e9">
+    <meta name="description" content="Painel demonstrativo do Bombadão para organizar treinos e acompanhar sua evolução.">
+    <title>Bombadão — Painel de treino</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <div class="demo-banner">
+      <span class="demo-pulse" aria-hidden="true"></span>
+      <span><strong>Modo demonstração</strong><i> Seus dados ficam neste aparelho.</i></span>
+      <button type="button" id="reset-demo" class="reset-demo">Restaurar exemplo</button>
+    </div>
+
+    <div class="app-frame">
+      <aside class="sidebar" id="sidebar">
+        <a class="brand" href="#inicio" aria-label="Bombadão, início">
+          <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M8 16v8M12 12v16M16 17v6M24 17v6M28 12v16M32 16v8M16 20h8" stroke="currentColor" stroke-width="3.5" stroke-linecap="round"/></svg></span>
+          <span class="brand-name">bomba<span>dão</span></span>
+        </a>
+
+        <p class="nav-caption">SEU ESPAÇO</p>
+        <nav class="side-nav" aria-label="Navegação do painel">
+          <button class="nav-item is-active" data-view="inicio" type="button"><span class="nav-icon" data-icon="home"></span><span>Início</span></button>
+          <button class="nav-item" data-view="treinos" type="button"><span class="nav-icon" data-icon="dumbbell"></span><span>Treinos</span></button>
+          <button class="nav-item" data-view="historico" type="button"><span class="nav-icon" data-icon="calendar"></span><span>Histórico</span></button>
+          <button class="nav-item" data-view="evolucao" type="button"><span class="nav-icon" data-icon="chart"></span><span>Evolução</span></button>
+          <button class="nav-item" data-view="medidas" type="button"><span class="nav-icon" data-icon="measure"></span><span>Medidas</span></button>
+          <button class="nav-item" data-view="desafios" type="button"><span class="nav-icon" data-icon="spark"></span><span>Desafios</span><span class="nav-soon">EM BREVE</span></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="sidebar-tip"><span class="tip-spark">✳</span><p><b>Um treino de cada vez.</b><br>Seu histórico vai contando o resto.</p></div>
+          <button class="profile-link" type="button" data-view="perfil"><span class="avatar">B</span><span class="profile-meta"><b>Meu perfil</b><small>Preferências pessoais</small></span><span class="profile-arrow">↗</span></button>
+        </div>
+      </aside>
+
+      <div class="main-column">
+        <header class="topbar">
+          <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Abrir navegação" aria-expanded="false"><span></span><span></span></button>
+          <div class="breadcrumb"><b id="hello-greeting">Oi, atleta!</b><i>·</i><span id="breadcrumb-current">Vamos cuidar do seu treino?</span></div>
+          <div class="topbar-actions">
+            <button class="active-session-pill" id="resume-session" type="button" hidden><span class="live-dot"></span> Treino em andamento <b>Continuar →</b></button>
+            <span class="topbar-date" id="today-label"></span>
+            <button class="top-avatar" type="button" data-view="perfil" aria-label="Abrir perfil">B</button>
+          </div>
+        </header>
+
+        <main class="main-content" id="main-content" tabindex="-1"></main>
+        <nav class="bottom-nav" aria-label="Navegação móvel">
+          <button class="bottom-nav-item is-active" data-view="inicio" type="button"><span data-icon="home"></span><small>Início</small></button>
+          <button class="bottom-nav-item" data-view="treinos" type="button"><span data-icon="dumbbell"></span><small>Treinos</small></button>
+          <button class="bottom-nav-item bottom-nav-main" data-view="sessao" type="button" aria-label="Começar treino"><span data-icon="play"></span></button>
+          <button class="bottom-nav-item" data-view="evolucao" type="button"><span data-icon="chart"></span><small>Evolução</small></button>
+          <button class="bottom-nav-item" data-view="perfil" type="button"><span data-icon="profile"></span><small>Perfil</small></button>
+        </nav>
+      </div>
+    </div>
+
+    <div class="modal-layer" id="modal-layer" hidden></div>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
